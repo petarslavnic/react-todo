@@ -4,11 +4,11 @@ import { is } from 'immutable';
 const customSelector = createSelectorCreator(defaultMemoize, is);
 
 export const getTodoById = (state, id) => state.todos.get(id.toString());
-export const getTodos = (state) => state.todos;
+export const getTodosIds = (state) => state.todos.map(t => t.id);
 
-export const getTodoIds = customSelector(
-  [getTodos],
-  todos => todos.map(t => t.id).toArray()
+export const getTodoIdsSelector = customSelector(
+  [getTodosIds],
+  ids => ids.toArray()
 );
 
-export const makeGetTodoIds = () => getTodoIds;
+export const makeGetTodoIdsSelector = () => getTodoIdsSelector;

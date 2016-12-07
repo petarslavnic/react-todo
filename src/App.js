@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import TodoList from './components/TodoList';
-import { makeGetTodoIds } from './selectors/todosSelector';
+import { makeGetTodoIdsSelector } from './selectors/todosSelector';
 
 const mapStateToProps = state => {
-  const getTodoIds = makeGetTodoIds();
+  const getTodoIdsSelector = makeGetTodoIdsSelector();
   return {
-    todos: getTodoIds(state),
+    todos: getTodoIdsSelector(state),
   };
 }
 
